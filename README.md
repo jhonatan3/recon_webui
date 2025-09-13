@@ -1,7 +1,6 @@
 # Recon-WebUI
 
-**Recon-WebUI** is a modular reconnaissance toolkit with both a **CLI** and a **Flask-based Web UI**.
-It was built as part of an offensive security internship assignment and is designed for passive + light active reconnaissance of domains and IPs.
+**Recon-WebUI** is a modular reconnaissance toolkit with both a **CLI** and a **Flask-based Web UI**. It is designed to streamline **passive and light active reconnaissance** of domains and IPs, supporting offensive security, penetration testing, and bug bounty workflows.
 
 ---
 
