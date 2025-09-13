@@ -24,27 +24,27 @@
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;python3 -m venv venv
   
-  source venv/bin/activate
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;source venv/bin/activate
 
 2. Install dependencies:
 
-  pip install -r requirements.txt
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pip install -r requirements.txt
 
 3. Run the web UI (development):
 
-  python web.py
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;python web.py
   
-  Open: http://127.0.0.1:5000/
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Open: http://127.0.0.1:5000/
 
 4. Use the CLI:
 
-  python cli.py example.com --dns
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;python cli.py example.com --dns
   
-  python cli.py example.com --whois
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;python cli.py example.com --whois
   
-  python cli.py example.com --subdomains
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;python cli.py example.com --subdomains
   
-  combine flags: python cli.py example.com --dns --whois --subdomains
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;combine flags: python cli.py example.com --dns --whois --subdomains
 
 
 ## 📤 Report Export
