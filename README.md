@@ -22,7 +22,7 @@
 
 1. Create & activate a Python virtualenv (recommended):
 
-&nbsp;&nbsp;python3 -m venv venv
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;python3 -m venv venv
   
   source venv/bin/activate
 
