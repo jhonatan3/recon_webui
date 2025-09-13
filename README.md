@@ -32,6 +32,7 @@ pip install -r requirements.txt
 3. Run the web UI (development):
 
 python web.py
+
 Open: http://127.0.0.1:5000/
 
 4. Use the CLI:
