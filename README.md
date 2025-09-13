@@ -22,28 +22,29 @@
 
 1. Create & activate a Python virtualenv (recommended):
 
-python3 -m venv venv
-source venv/bin/activate
+  python3 -m venv venv
+  
+  source venv/bin/activate
 
 2. Install dependencies:
 
-pip install -r requirements.txt
+  pip install -r requirements.txt
 
 3. Run the web UI (development):
 
-python web.py
-
-Open: http://127.0.0.1:5000/
+  python web.py
+  
+  Open: http://127.0.0.1:5000/
 
 4. Use the CLI:
 
-python cli.py example.com --dns
-
-python cli.py example.com --whois
-
-python cli.py example.com --subdomains
-
-combine flags: python cli.py example.com --dns --whois --subdomains
+  python cli.py example.com --dns
+  
+  python cli.py example.com --whois
+  
+  python cli.py example.com --subdomains
+  
+  combine flags: python cli.py example.com --dns --whois --subdomains
 
 
 ## 📤 Report Export
