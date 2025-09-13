@@ -1,0 +1,177 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Recon WebUI — DNS / WHOIS / Subdomains / Ports / Tech</title>
+    <style>
+      body { font-family: Arial, sans-serif; margin: 20px; }
+      table { border-collapse: collapse; width: 90%; margin-top: 12px; }
+      th, td { border: 1px solid #ccc; padding: 8px; text-align: left; vertical-align: top; }
+      th { background: #f4f4f4; }
+      pre { background: #f9f9f9; padding: 8px; border: 1px solid #eee; white-space: pre-wrap; word-break: break-word; }
+      .controls { margin-top: 8px; }
+      .small { font-size: 0.9em; color: #555; }
+      .port-open { color: green; font-weight: bold; }
+      .port-closed { color: #777; }
+      .tech-tag { display: inline-block; background: #eef; padding: 4px 8px; margin: 4px; border-radius: 6px; font-size: 0.9em; }
+    </style>
+  </head>
+  <body>
+    <h1>Recon WebUI — DNS / WHOIS / Subdomains / Ports / Tech</h1>
+
+    <form method="post">
+      <label for="target">Target (domain or IP):</label>
+      <input id="target" name="target" placeholder="example.com" required value="{{ target or '' }}">
+      <div class="controls">
+        <label><input type="checkbox" name="dns" checked> DNS</label>
+        <label><input type="checkbox" name="whois"> WHOIS</label>
+        <label><input type="checkbox" name="subdomains"> Subdomains</label>
+        <label><input type="checkbox" name="portscan"> Port scan</label>
+        <label><input type="checkbox" name="tech"> Technology detection</label>
+        <label class="small">Ports (comma-separated, leave blank for defaults): <input name="ports" placeholder="22,80,443,8080" value=""></label>
+        <button type="submit">Run</button>
+      </div>
+    </form>
+
+    {% if result %}
+      <h2>Result</h2>
+      <p><strong>{{ result.message }}</strong></p>
+
+	<h3>Export</h3>
+  	<p>
+    	<a href="{{ url_for('main.download_report', fmt='json') }}">Download JSON</a> |
+    	<a href="{{ url_for('main.download_report', fmt='txt') }}">Download TXT</a> |
+    	<a href="{{ url_for('main.download_report', fmt='html') }}">Download HTML</a>
+  	</p>
+
+      {% if result.dns %}
+        <h3>DNS Records</h3>
+        <table>
+          <thead>
+            <tr><th>Record Type</th><th>Values</th></tr>
+          </thead>
+          <tbody>
+            {% for rtype, values in result.dns.items() %}
+              <tr>
+                <td>{{ rtype }}</td>
+                <td>
+                  {% if values %}
+                    <ul>
+                      {% for v in values %}
+                        <li><pre style="display:inline">{{ v }}</pre></li>
+                      {% endfor %}
+                    </ul>
+                  {% else %}
+                    <em>None found</em>
+                  {% endif %}
+                </td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      {% endif %}
+
+      {% if result.whois %}
+        <h3>WHOIS</h3>
+        {% if result.whois.error %}
+          <pre>{{ result.whois.error }}</pre>
+        {% else %}
+          <table>
+            <thead><tr><th>Field</th><th>Value</th></tr></thead>
+            <tbody>
+              {% for key, val in result.whois.items() %}
+                <tr>
+                  <td>{{ key }}</td>
+                  <td>
+                    {% if val is iterable and not val is string %}
+                      <ul>
+                        {% for item in val %}
+                          <li><pre style="display:inline">{{ item }}</pre></li>
+                        {% endfor %}
+                      </ul>
+                    {% else %}
+                      <pre>{{ val }}</pre>
+                    {% endif %}
+                  </td>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        {% endif %}
+      {% endif %}
+
+      {% if result.subdomains is defined %}
+        <h3>Subdomains (crt.sh)</h3>
+        {% if result.subdomains %}
+          <ul>
+            {% for s in result.subdomains %}
+              <li><pre style="display:inline">{{ s }}</pre></li>
+            {% endfor %}
+          </ul>
+        {% else %}
+          <p><em>No subdomains found (crt.sh).</em></p>
+        {% endif %}
+      {% endif %}
+
+      {% if result.ports is defined %}
+        <h3>Port Scan</h3>
+        <table>
+          <thead><tr><th>Port</th><th>Status</th><th>Banner (truncated)</th></tr></thead>
+          <tbody>
+            {% for p in result.ports %}
+              <tr>
+                <td>{{ p.port }}</td>
+                <td>
+                  {% if p.open %}
+                    <span class="port-open">open</span>
+                  {% else %}
+                    <span class="port-closed">closed/filtered</span>
+                  {% endif %}
+                </td>
+                <td><pre>{{ p.banner[:500] }}</pre></td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      {% endif %}
+
+      {% if result.tech is defined %}
+        <h3>Technology detection</h3>
+
+        {% if result.tech.banner_matches %}
+          <p><strong>Matches from banners:</strong></p>
+          {% for t in result.tech.banner_matches %}
+            <span class="tech-tag">{{ t }}</span>
+          {% endfor %}
+        {% endif %}
+
+        {% if result.tech.guesses %}
+          <p><strong>Guessed technologies:</strong></p>
+          {% for t in result.tech.guesses %}
+            <span class="tech-tag">{{ t }}</span>
+          {% endfor %}
+        {% endif %}
+
+        {% if result.tech.http_probes %}
+          <h4>HTTP probes</h4>
+          {% for probe in result.tech.http_probes %}
+            <div style="border:1px solid #eee; padding:8px; margin:8px 0;">
+              <p><strong>URL:</strong> {{ probe.url }} {% if probe.status_code %} — status {{ probe.status_code }}{% endif %} {% if probe.error %} — error: {{ probe.error }}{% endif %}</p>
+              {% if probe.headers %}
+                <details><summary>Headers</summary>
+                  <pre>{{ probe.headers }}</pre>
+                </details>
+              {% endif %}
+              {% if probe.body_snippet %}
+                <details><summary>Body snippet (truncated)</summary>
+                  <pre>{{ probe.body_snippet[:1000] }}</pre>
+                </details>
+              {% endif %}
+            </div>
+          {% endfor %}
+        {% endif %}
+
+      {% endif %}
+    {% endif %}
+  </body>
+</html>
