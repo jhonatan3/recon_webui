@@ -1,0 +1,6 @@
+Flask>=2.0
+requests
+dnspython
+python-whois
+# Optional (not yet used, but handy later):
+# python-nmap>=0.6.4
