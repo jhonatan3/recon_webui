@@ -45,53 +45,8 @@ python cli.py example.com --subdomains
 
 combine flags: python cli.py example.com --dns --whois --subdomains
 
-📂 Project Structure
 
-recon_webui/
-
-├── app/
-
-│   ├── __init__.py
-
-│   ├── routes.py
-
-│   ├── templates/
-
-│   │   ├── index.html
-
-│   │   └── report.html
-
-│   └── static/
-
-├── modules/
-
-│   ├── dns_enum.py
-
-│   ├── whois_lookup.py
-
-│   ├── subdomain_enum.py
-
-│   ├── port_scanner.py
-
-│   └── tech_detect.py
-
-├── utils/
-
-│   ├── logger.py
-
-│   └── cache.py
-
-├── cache.json          # created automatically for subdomain caching
-
-├── cli.py
-
-├── web.py
-
-├── requirements.txt
-
-└── README.md
-
-📤 Report Export
+## 📤 Report Export
 
 After running a scan in the Web UI, you can download results as:
 
@@ -101,7 +56,7 @@ TXT → plain text summary.
 
 HTML → styled, printable report.
 
-⚠️ Disclaimer
+##⚠️ Disclaimer
 
 This tool is intended for educational and authorized penetration testing only.
 Do not scan or probe systems without proper permission. Unauthorized use may violate laws.
