@@ -56,13 +56,13 @@ TXT → plain text summary.
 
 HTML → styled, printable report.
 
-##⚠️ Disclaimer
+## ⚠️ Disclaimer
 
 This tool is intended for educational and authorized penetration testing only.
 Do not scan or probe systems without proper permission. Unauthorized use may violate laws.
 
-📜 License
-MIT License — Copyright (c) 2025 Aashir Waqar
+## 📜 License
+**MIT License — Copyright (c) 2025 Aashir Waqar**
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
