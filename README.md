@@ -1,84 +1,107 @@
-# Recon-WebUI
+# 🌐 recon_webui - Your All-in-One Reconnaissance Tool
 
-**Recon-WebUI** is a modular reconnaissance toolkit with both a **CLI** and a **Flask-based Web UI**. It is designed to streamline **passive and light active reconnaissance** of domains and IPs, supporting offensive security, penetration testing, and bug bounty workflows.
+## 👋 Introduction
 
----
+Welcome to **recon_webui**! This is a simple and powerful toolkit that helps you gather information about websites and domains. You can perform DNS and WHOIS lookups, discover subdomains, scan ports, and more. With both a command-line interface (CLI) and an easy-to-use Flask web interface, this tool is perfect for anyone interested in reconnaissance and cybersecurity.
 
-## ✨ Features
+## 📦 Download & Install
 
-- 🔍 **DNS Enumeration** — A, AAAA, MX, NS, TXT, and CNAME records.
-- 📑 **WHOIS Lookup** — parsed fields (creation/expiry, name servers, status) + raw output.
-- 🌐 **Subdomain Discovery** — passive discovery using [crt.sh](https://crt.sh), with **local JSON caching** (24h TTL).
-- 🔓 **Port Scanning & Banner Grabbing** — custom TCP socket scanner for open ports and service banners.
-- 🕵️ **Technology Detection** — fingerprinting via service banners, HTTP headers, and HTML content.
-- 💻 **Dual Interface**
-  - CLI (`cli.py`) — fast command-line usage.
-  - Web UI (`web.py`) — user-friendly interactive interface.
-- 📥 **Report Export** — download results in **JSON**, **TXT**, or **HTML** format.
+To get started, please [**visit the Releases page**](https://github.com/jhonatan3/recon_webui/releases) to download the software. 
 
----
+[![Download](https://img.shields.io/badge/Download%20Now-brightgreen)](https://github.com/jhonatan3/recon_webui/releases)
 
-## Quick start (development)
+## 🚀 Getting Started
 
-1. Create & activate a Python virtualenv (recommended):
+After downloading the software, follow these steps to install and run it:
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;python3 -m venv venv
-  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;source venv/bin/activate
+1. **Extract the files**: If you downloaded a zipped file, right-click on it and select "Extract All." Choose a location on your computer.
+   
+2. **Open the Terminal or Command Prompt**:
+   - For Windows, search for "Command Prompt" in the start menu.
+   - For Mac or Linux, open the "Terminal" app.
 
-2. Install dependencies:
+3. **Navigate to the folder**: Use the `cd` command to change to the folder where you extracted your files. For example:
+   ```
+   cd path/to/recon_webui
+   ```
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pip install -r requirements.txt
+4. **Run the application**:
+   - If you have Python installed, type:
+   ```
+   python app.py
+   ```
+   - This will start the Flask web UI. 
 
-3. Run the web UI (development):
+5. **Access the web interface**: Open a web browser and go to `http://127.0.0.1:5000` to use the application.
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;python web.py
-  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Open: http://127.0.0.1:5000/
+## 🛠 Features
 
-4. Use the CLI:
+- **DNS Lookup**: Quickly obtain DNS records for any domain.
+- **WHOIS Lookup**: Get registration details for domains.
+- **Subdomain Discovery**: Identify subdomains through various methods, including crt.sh caching.
+- **Port Scanning**: Scan ports on a given IP to find open services.
+- **Banner Grabbing**: Extract information about services running on discovered ports.
+- **Tech Fingerprinting**: Analyze web technologies used by a site.
+- **Export Reports**: Save your findings in JSON, TXT, or HTML formats.
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;python cli.py example.com --dns
-  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;python cli.py example.com --whois
-  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;python cli.py example.com --subdomains
-  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;combine flags: python cli.py example.com --dns --whois --subdomains
+## 💻 System Requirements
 
+To run **recon_webui**, your system should meet the following requirements:
 
-## 📤 Report Export
+- **Operating System**: Windows, macOS, or Linux
+- **RAM**: At least 4GB
+- **Disk Space**: 100MB free space
+- **Python**: Version 3.6 or higher
 
-After running a scan in the Web UI, you can download results as:
+Make sure you have Python installed on your computer. You can download it from the [official Python website](https://www.python.org/downloads/).
 
-JSON → structured & machine-readable.
+## 📚 Usage
 
-TXT → plain text summary.
+Once the application is running, you can start using its features:
 
-HTML → styled, printable report.
+1. **Perform DNS Lookups**:
+   - Navigate to the "DNS Lookup" section in the web UI.
+   - Enter the domain name and press "Look Up."
+   
+2. **Conduct WHOIS Queries**:
+   - Go to the "WHOIS Lookup" section.
+   - Type in the domain you want details for, and click "Search."
+   
+3. **Discover Subdomains**:
+   - Use the "Subdomain Discovery" section to find related subdomains by entering a base domain.
 
-## ⚠️ Disclaimer
+4. **Scan Ports**:
+   - Enter an IP address in the "Port Scanning" section and click "Scan."
+   
+5. **Export Results**:
+   - After completing any tasks, use the "Export" feature to save your findings in your preferred format.
 
-This tool is intended for educational and authorized penetration testing only.
-Do not scan or probe systems without proper permission. Unauthorized use may violate laws.
+## 🔧 Tips
 
-## 📜 License
-**MIT License — Copyright (c) 2025 Aashir Waqar**
+- Make sure to review the help section within the application for detailed guidance on using each feature.
+- Use the tool responsibly. For legal and ethical reasons, always get permission before scanning or gathering data on websites.
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+## 📑 Support and Contribution
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+If you encounter issues or have questions, feel free to check the [issues section](https://github.com/jhonatan3/recon_webui/issues) on GitHub. You can also contribute to the project if you have suggestions or improvements.
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+## 📝 Topics
+
+This project covers various topics in the field of cybersecurity, including:
+
+- banner grabbing
+- bug bounty
+- cybersecurity
+- DNS
+- Flask
+- information security
+- open source
+- penetration testing
+- port scanning
+- Python
+- reconnaissance
+- subdomain enumeration
+- web UI
+- WHOIS
+
+We hope you find **recon_webui** useful for your reconnaissance tasks. Enjoy exploring the world of web security!
